@@ -1,10 +1,13 @@
-package guru.springframwork.sfgdi;
+package guru.springframework.sfgdi;
 
-import guru.springframwork.sfgdi.controllers.*;
+import com.springframework.pet.controllers.PetController;
+import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan({"guru.springframework.sfgdi","com.springframework.pet"})
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -32,6 +35,10 @@ public class SfgDiApplication {
         System.out.println("---------- i18n");
         I18nGreetingController i18nGreetingController = (I18nGreetingController) context.getBean("i18nGreetingController");
         System.out.println(i18nGreetingController.getGreeting());
+
+        System.out.println("---------- pets");
+        PetController petController = (PetController) context.getBean("petController");
+        System.out.println(petController.sayPets());
     }
 
 }
