@@ -8,8 +8,16 @@ import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Profile;
 
+/**
+ * Spring Bean Definition methods
+ * 1. Use Annotation such as @Service
+ * 2. Use Java Configuration like this class
+ * 3. Use xml bean definition
+ */
+@ImportResource("classpath:bean-definition.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -47,10 +55,11 @@ public class GreetingServiceConfig {
         return new I18nSpanishGreetingService();
     }
 
-    @Bean // Spring would use the method name as the Service name like constructorInjectedGreetingService
-    public ConstructorInjectedGreetingService constructorInjectedGreetingService() {
-        return new ConstructorInjectedGreetingService();
-    }
+    // define this bean in xml
+//    @Bean // Spring would use the method name as the Service name like constructorInjectedGreetingService
+//    public ConstructorInjectedGreetingService constructorInjectedGreetingService() {
+//        return new ConstructorInjectedGreetingService();
+//    }
 
     @Bean
     public PropertyInjectedGreetingService propertyInjectedGreetingService() {
