@@ -1,13 +1,11 @@
 package guru.springframework.sfgdi;
 
-import com.springframework.pet.controllers.PetController;
+import guru.springframework.sfgdi.controllers.PetController;
 import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"guru.springframework.sfgdi","com.springframework.pet"})
 @SpringBootApplication
 public class SfgDiApplication {
 
