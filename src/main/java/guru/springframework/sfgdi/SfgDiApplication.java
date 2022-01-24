@@ -1,5 +1,7 @@
 package guru.springframework.sfgdi;
 
+import guru.springframework.sfgdi.bean.PrototypeBean;
+import guru.springframework.sfgdi.bean.SingletonBean;
 import guru.springframework.sfgdi.controllers.PetController;
 import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +39,16 @@ public class SfgDiApplication {
         System.out.println("---------- pets");
         PetController petController = (PetController) context.getBean("petController");
         System.out.println(petController.sayPets());
+
+        System.out.println("---------- bean scope");
+        SingletonBean singletonBean1 = context.getBean(SingletonBean.class);
+        System.out.println(singletonBean1.greeting());
+        SingletonBean singletonBean2 = context.getBean(SingletonBean.class);
+        System.out.println(singletonBean2.greeting());
+        PrototypeBean prototypeBean1 = context.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean1.greeting());
+        PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean2.greeting());
     }
 
 }
