@@ -4,6 +4,7 @@ import guru.springframework.sfgdi.bean.PrototypeBean;
 import guru.springframework.sfgdi.bean.SingletonBean;
 import guru.springframework.sfgdi.controllers.PetController;
 import guru.springframework.sfgdi.controllers.*;
+import guru.springframework.sfgdi.datasource.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -49,6 +50,10 @@ public class SfgDiApplication {
         System.out.println(prototypeBean1.greeting());
         PrototypeBean prototypeBean2 = context.getBean(PrototypeBean.class);
         System.out.println(prototypeBean2.greeting());
+
+        System.out.println("---------- external properties");
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.toString());
     }
 
 }
