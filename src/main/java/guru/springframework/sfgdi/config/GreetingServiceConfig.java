@@ -16,7 +16,6 @@ import org.springframework.context.annotation.*;
  * 2. Use Java Configuration like this class
  * 3. Use xml bean definition
  */
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:bean-definition.xml")
 @Configuration
 public class GreetingServiceConfig {
