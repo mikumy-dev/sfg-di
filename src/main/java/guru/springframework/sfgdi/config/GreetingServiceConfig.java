@@ -3,13 +3,12 @@ package guru.springframework.sfgdi.config;
 import com.springframework.pet.services.CatService;
 import com.springframework.pet.services.PetService;
 import com.springframework.pet.services.PetServiceFactory;
+import guru.springframework.sfgdi.datasource.FakeDataSource;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
 
 /**
  * Spring Bean Definition methods
@@ -17,9 +16,21 @@ import org.springframework.context.annotation.Profile;
  * 2. Use Java Configuration like this class
  * 3. Use xml bean definition
  */
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:bean-definition.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String username,
+                                  @Value("${guru.password}") String password,
+                                  @Value("${guru.jdbc_url}") String jdbcUrl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcUrl(jdbcUrl);
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() {
