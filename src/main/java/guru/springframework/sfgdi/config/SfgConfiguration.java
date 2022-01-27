@@ -3,7 +3,7 @@ package guru.springframework.sfgdi.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties("guru")
+@ConfigurationProperties("guru.property.config")
 @Configuration
 public class SfgConfiguration {
     private String username;
@@ -32,5 +32,14 @@ public class SfgConfiguration {
 
     public void setJdbc_url(String jdbc_url) {
         this.jdbc_url = jdbc_url;
+    }
+
+    @Override
+    public String toString() {
+        return "SfgConfiguration{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", jdbc_url='" + jdbc_url + '\'' +
+                '}';
     }
 }

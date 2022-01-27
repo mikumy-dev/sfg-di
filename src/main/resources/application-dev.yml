@@ -1,4 +1,11 @@
 guru:
-  username: guru_username_yml_dev
-  password: guru_password_yml_dev
-  jdbc_url: guru_jdbc_url_yml_dev
+  constructor:
+    config:
+      username: guru_username_constructor
+      password: guru_password_constructor
+      jdbc_url: guru_jdbc_url_constructor
+  property:
+    config:
+      username: guru_username_property
+      password: guru_password_property
+      jdbc_url: guru_jdbc_url_property
