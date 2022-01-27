@@ -1,7 +1,16 @@
 spring:
   profiles:
-    active: EN, cat, dev
+    active: EN, cat, prod
 guru:
   username: guru_username_yml
   password: guru_password_yml
   jdbc_url: guru_jdbc_url_yml
+
+---
+
+spring:
+  profiles: prod
+guru:
+  username: guru_username_yml_prod
+  password: guru_password_yml_prod
+  jdbc_url: guru_jdbc_url_yml_prod    
