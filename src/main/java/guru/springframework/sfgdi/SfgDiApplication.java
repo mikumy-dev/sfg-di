@@ -2,6 +2,8 @@ package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.bean.PrototypeBean;
 import guru.springframework.sfgdi.bean.SingletonBean;
+import guru.springframework.sfgdi.config.SfgConfiguration;
+import guru.springframework.sfgdi.config.SfgConstructorConfig;
 import guru.springframework.sfgdi.controllers.PetController;
 import guru.springframework.sfgdi.controllers.*;
 import guru.springframework.sfgdi.datasource.FakeDataSource;
@@ -54,6 +56,12 @@ public class SfgDiApplication {
         System.out.println("---------- external properties");
         FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource.toString());
+
+        System.out.println("---------- properties binding");
+        SfgConfiguration sfgConfiguration = context.getBean(SfgConfiguration.class);
+        System.out.println(sfgConfiguration.toString());
+        SfgConstructorConfig sfgConstructorConfig = context.getBean(SfgConstructorConfig.class);
+        System.out.println(sfgConstructorConfig.toString());
     }
 
 }
