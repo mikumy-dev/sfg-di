@@ -1,0 +1,4 @@
+guru:
+  username: guru_username_yml_dev
+  password: guru_password_yml_dev
+  jdbc_url: guru_jdbc_url_yml_dev
